@@ -3,5 +3,6 @@
 ## Tecnologias utilizadas no projeto
 * HTML
 * CSS
+* JS
 ## Objetivo do projeto
 * Treinar validações de formularios com javascript

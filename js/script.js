@@ -1,4 +1,5 @@
 import validaCPF from "./valida-cpf.js";
+import ehMaiorDeIdade from "./valida-idade.js";
 
 const camposFormulario = document.querySelectorAll('[required]');
 
@@ -7,7 +8,11 @@ camposFormulario.forEach(campo => {
 })
 
 function verificarCampo(campo) {
-    if (campo.name == 'cpf' && campo.value.length >= 11) {
-        validaCPF(campo);
-    }
+  if (campo.name == 'cpf' && campo.value.length >= 11) {
+    validaCPF(campo); 
+  }
+
+  if (campo.name == 'aniversario' && campo.value != "") {
+    ehMaiorDeIdade(campo)
+  }
 }

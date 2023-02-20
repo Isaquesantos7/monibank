@@ -1,3 +1,5 @@
+import validaCPF from "./valida-cpf.js";
+
 const camposFormulario = document.querySelectorAll('[required]');
 
 camposFormulario.forEach(campo => {
@@ -5,5 +7,7 @@ camposFormulario.forEach(campo => {
 })
 
 function verificarCampo(campo) {
-    console.log(campo);
+    if (campo.name == 'cpf' && campo.value.length >= 11) {
+        validaCPF(campo);
+    }
 }

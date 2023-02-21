@@ -6,7 +6,7 @@ const canvas = document.querySelector('[data-video-canvas]');
 const mensagem = document.querySelector('[data-mensagem]');
 const botaoEnviarFoto = document.querySelector('[data-enviar]');
 
-const imagemURL = '';
+let imagemURL = '';
 
 /* Evento que iniciará a camera */
 botaoIniciarCamera.addEventListener('click', async function() {
@@ -22,7 +22,7 @@ botaoIniciarCamera.addEventListener('click', async function() {
 botaoTirarFoto.addEventListener('click', function () {
     canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    imagemURL = canvas.toDataURL('image/url');
+    imagemURL = canvas.toDataURL('image/jpeg');
 
     campoCamera.style.display = 'none';
     mensagem.style.display = 'bock';
@@ -31,7 +31,7 @@ botaoTirarFoto.addEventListener('click', function () {
 /* Enviando foto */
 botaoEnviarFoto.addEventListener('click', () => {
     const receberDadosExistentes = localStorage.getItem('cadastro');
-    const coverterDados = JSON.stringify(receberDadosExistentes);
+    const coverterDados = JSON.parse(receberDadosExistentes);
 
     coverterDados.imagem = imagemURL;
 
